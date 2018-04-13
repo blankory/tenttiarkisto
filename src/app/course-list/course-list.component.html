@@ -1,0 +1,32 @@
+<!-- Course selection -->
+<mat-card class="container">
+  <mat-card-title>
+    Select course
+  </mat-card-title>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-card-content>
+    <!-- search/filter field -->
+    <!-- Table of content -->
+    <mat-table #table [dataSource]="dataSource" matSort>
+      <!-- Course ID column -->
+      <ng-container matColumnDef="code">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.code}}</mat-cell>
+      </ng-container>
+      <!-- Course Name column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+      </ng-container>
+
+      <!-- Header row -->
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <!-- Rows -->
+      <mat-row *matRowDef="let row; columns: columns;" (click)="onSelectRow(row)"></mat-row>
+    </mat-table>
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[10, 25, 100, 500]"></mat-paginator>
+  </mat-card-content>
+</mat-card>
