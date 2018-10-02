@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Course } from '../model/course.model';
 import {HttpClient} from '@angular/common/http';
+
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class CourseService {
