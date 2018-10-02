@@ -1,6 +1,15 @@
 # Tenttiarkisto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+Tenttiarkisto is simple web application to search and view old (information processing science) exams. You can find live version in [tentit.blanko.fi](https://tentit.blanko.fi) url.
+
+Project uses simple approach for backend because it use static pdf files to store exams and json file to save details of courses. 
+
+Exams are stored in directory `assets/exams` and metadata of courses are stored in `assets/courses.json`.
+
+## Goals
+Long term goals for project is to build actual back end api that allows users to add new exams to exam database. 
+
+Short term goal is to make user interface and data models more useful.
 
 ## Development server
 
