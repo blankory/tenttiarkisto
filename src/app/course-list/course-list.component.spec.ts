@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 
 import { CourseListComponent } from './course-list.component';
 
@@ -8,7 +9,8 @@ describe('CourseListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseListComponent ]
+      declarations: [ CourseListComponent ],
+      providers: [MatSort, MatPaginator, MatTableDataSource],
     })
     .compileComponents();
   }));
