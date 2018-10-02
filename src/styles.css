@@ -12,3 +12,21 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .spacer {
   flex: 1 1 auto;
 }
+
+.fullWide {
+  width: 100%;
+}
+
+.mat-header-row {
+  background-color: rgb(245,245,245);
+}
+
+.mat-row {
+  cursor: pointer;
+}
+.mat-row:nth-child(odd) {
+  background-color: rgb(245,245,245);
+}
+.mat-row:hover {
+  background-color: rgb(235,235,235);
+}
