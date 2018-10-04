@@ -30,6 +30,7 @@ export class CourseListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log('INITING');
+    console.log('mockCourseService', this.courseService);
     this.courseService.courses.subscribe(
       res => {
         this.courses = res;
