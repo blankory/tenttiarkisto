@@ -4,25 +4,27 @@ import { CourseComponent } from './course.component';
 import { MaterialModule } from '../material/material.module';
 import { CourseService } from '../service/course.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 describe('CourseComponent', () => {
   let component: CourseComponent;
   let fixture: ComponentFixture<CourseComponent>;
-  let mockCourseService: CourseService;
-  let route: ActivatedRoute;
-
-  let mockjotain = {
+  let mockCourseService = {
+    getCourseByCode: () => new Observable()
+  };
+  let mockSnapshot = {
     paramMap : {
       has: (name: string) => true, 
       get: (name: string) => 'x',
       getAll: (name: string) => [],
     }
   }
+  let route = {
+    snapshot: mockSnapshot
+  };
+
 
   beforeEach(async(() => {
-    route = jasmine.createSpyObj('route', ['snapshot']).and.returnValue(mockjotain);;
-    // jasmine.createSpy('snapshot').and.returnValue(mockjotain);
     TestBed.configureTestingModule({
       imports: [MaterialModule],
       declarations: [ CourseComponent ],
@@ -34,7 +36,6 @@ describe('CourseComponent', () => {
   }));
 
   beforeEach(() => {
-    mockCourseService = jasmine.createSpyObj('courseService', ['getCourseByCode']);
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

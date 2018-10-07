@@ -29,7 +29,6 @@ export class CourseComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log('snap', this.route.snapshot);
     const id: string = this.route.snapshot.paramMap.get('id');
     this.courseService.getCourseByCode(id).subscribe(
       res => {
