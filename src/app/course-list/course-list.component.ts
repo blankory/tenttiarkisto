@@ -22,7 +22,7 @@ export class CourseListComponent implements OnInit, AfterViewInit {
     private courseService: CourseService,
     public router: Router
   ) {
-    this.courses = null;
+    this.courses = new Array<Course>();
 
     this.columns = ['code', 'name'];
     this.dataSource = new MatTableDataSource<Course>(this.courses);
@@ -30,9 +30,9 @@ export class CourseListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log('INITING');
-    this.courseService.courses.subscribe(
+    this.courseService.getCourses().subscribe(
       res => {
-        this.courses = res;
+        this.courses = res.data;
         this.dataSource.data = this.courses;
       }
     );

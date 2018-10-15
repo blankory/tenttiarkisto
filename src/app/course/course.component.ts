@@ -4,6 +4,8 @@ import { Course } from '../model/course.model';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Exam} from '../model/exam.model';
 import {ActivatedRoute} from '@angular/router';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-course',
@@ -30,8 +32,12 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const id: string = this.route.snapshot.paramMap.get('id');
-    this.courseService.getCourseByCode(id).subscribe(
+    const obs = this.getCourseByCode(id);
+    console.log('HEY COUrse obs IS:', obs, id);
+    console.log('obs.subscripe:', obs.subscribe);
+    obs.subscribe(
       res => {
+        console.log('HEY COUER RES:', res);
         this.course = res;
         if (this.course != null) {
           this.dataSource.data = this.course.exam;
@@ -40,6 +46,16 @@ export class CourseComponent implements OnInit, AfterViewInit {
         }
       }
     );
+  }
+
+  getCourseByCode(code: string): Observable<Course | null> {
+    return this.courseService.getCourses().pipe(map(courses => {
+      const foundCourse = courses['data'].find((course) => {
+        return course.code === code;
+      });
+      this.courseService.selectCourse(foundCourse);
+      return foundCourse;
+    }));
   }
 
   ngAfterViewInit() {
