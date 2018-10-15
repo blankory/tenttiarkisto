@@ -5,6 +5,7 @@ import { Course } from '../model/course.model';
 import {HttpClient} from '@angular/common/http';
 
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class CourseService {
@@ -25,6 +26,16 @@ export class CourseService {
 
   selectCourse(course: Course | null) {
     this._selectedCourse.next(course);
+  }
+
+  getCourseByCode(code: string): Observable<Course | null> {
+    return this.getCourses().pipe(map(courses => {
+      const foundCourse = courses['data'].find((course) => {
+        return course.code === code;
+      });
+      this.selectCourse(foundCourse);
+      return foundCourse;
+    }));
   }
 
   loadInitialData(): Observable<{data: Course[]}>  {
