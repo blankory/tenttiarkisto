@@ -30,3 +30,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .mat-row:hover {
   background-color: rgb(235,235,235);
 }
+
+.mat-paginator .mat-paginator-container{
+  justify-content: flex-start;
+}
