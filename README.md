@@ -29,6 +29,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Quick setup
+
+If you have docker installed, you use the dockerfile in repo to quickly build and test the project.
+Run `docker build -t tenttiarkisto .` from the repo to build the docker image.
+Run `docker run -it --rm -p 4200:80 tenttiarkisto` to run the project.
+You can access the project in browser from `http://localhost:4200/`.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
