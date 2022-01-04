@@ -4,6 +4,8 @@ import { Course } from '../model/course.model';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Exam} from '../model/exam.model';
 import {ActivatedRoute} from '@angular/router';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-course',

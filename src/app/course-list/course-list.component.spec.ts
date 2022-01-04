@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
   let fixture: ComponentFixture<CourseListComponent>;
-  let mockCourseService: CourseService;
+  let mockCourseService = {
+    getCourses: () => new Observable()
+  };
   let mockRouter: Router;
   let kurssit: Course[] = [];
   
   beforeEach(async(() => {
     kurssit.push({code: "x", name: "y", exam: null});
-    mockCourseService = jasmine.createSpyObj('courseService', ['courses']);
-    mockCourseService.courses.subscribe = () => (Observable.create(kurssit));
     TestBed.configureTestingModule({
       imports: [MaterialModule, BrowserAnimationsModule],
       declarations: [ CourseListComponent ],
