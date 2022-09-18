@@ -36,6 +36,10 @@ Run `docker build -t tenttiarkisto .` from the repo to build the docker image.
 Run `docker run -it --rm -p 4200:80 tenttiarkisto` to run the project.
 You can access the project in browser from `http://localhost:4200/`.
 
+Mount with custom assets
+
+`docker run --rm -p 4200:80 -v ${PWD}/courses.json:/usr/share/nginx/html/assets/courses.json -v ${PWD}/exams:/usr/share/nginx/html/assets/exams tenttiarkisto`
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
