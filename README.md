@@ -6,6 +6,10 @@ Project uses simple approach for backend because it use static pdf files to stor
 
 Exams are stored in directory `assets/exams` and metadata of courses are stored in `assets/courses.json`.
 
+Commits to master in this repository are automatically tagged, and Docker image for **tenttiarkisto** is built. 
+
+This is image tagged as `ghcr.io/blankory/tenttiarkisto:<tag>`
+
 ## Goals
 Long term goals for project is to build actual back end api that allows users to add new exams to exam database. 
 
